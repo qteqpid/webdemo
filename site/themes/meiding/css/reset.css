@@ -1,0 +1,129 @@
+/* --------------------------------------------------------------
+
+   reset.css
+   * Resets default browser CSS.
+
+-------------------------------------------------------------- */
+
+html {
+  margin:0;
+  padding:0;
+  border:0;
+}
+
+body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+hgroup, nav, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* This helps to make newer HTML5 elements behave like DIVs in older browers */
+article, aside, details, figcaption, figure, dialog,
+footer, header, hgroup, menu, nav, section {
+    display:block;
+}
+
+/* Line-height should always be unitless! */
+body {
+  line-height: 1.5;
+  background: white;
+  font:12px/1.5 Arial,Helvetica,sans-serif;
+}
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+/* float:none prevents the span-x classes from breaking table-cell display */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  float:none !important;
+}
+table, th, td {
+  vertical-align: middle;
+}
+.tab1{
+    color: #444444;
+    border-bottom: 1px dashed #CCCCCC;
+    padding: 20px 0;
+}
+.tab1 .td1 {
+    padding-right: 25px;
+    vertical-align: top;
+    width: 55px;
+}
+.tab1 .td1 p {
+    overflow: hidden;
+    padding: 2px 0 0 2px;
+    width: 55px;
+}
+.tab1 .td2 {
+    line-height: 20px;
+    padding-right: 15px;
+    width: 430px;
+}
+.tab1 .td2 h2 a {
+    color:#444444;
+    font-size: 16px;
+    line-height: 26px;
+}
+.tab1 .td2 .ques_time {
+    padding: 5px 0;
+}
+.tab1 .td2 label {
+    color: #888888;
+    margin-right: 15px;
+}
+.tab1 .time {
+    color: #000000;
+    padding: 0 4px;
+}
+.spacing {
+    margin: 15px auto;
+}
+.tab1 .td2 .answer_num {
+    color: #666666;
+    margin-right: 15px;
+}
+.tab1 .td2 .share_bar {
+    color: #666666;
+    margin-left: 15px;
+}
+.tab1 .td2 label {
+    color: #888888;
+    margin-right: 20px;
+    
+}
+
+.tab1 .td2 a:link, a:visited {
+    text-decoration: none;
+}
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ''; }
+blockquote, q { quotes: "" ""; }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
+
+/* Remember to define your own focus styles! */
+:focus { outline: 0; }
+
+.container{width:960px;margin:0 auto;}
+.tl{text-align:left;}
+.tc{text-align:center;}
+.tr{text-align:right;}
+a:link,a:visited{text-decoration:none;}
+a:hover{text-decoration:underline;}	 

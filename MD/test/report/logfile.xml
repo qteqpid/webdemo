@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="components/" tests="2" assertions="1" failures="0" errors="1" time="0.008051">
+    <testsuite name="CLoggerTest" file="/home/qteqpid/workspace/sns/MD/test/components/log/CLoggerTest.php" tests="1" assertions="1" failures="0" errors="0" time="0.000919">
+      <testcase name="testInit" class="CLoggerTest" file="/home/qteqpid/workspace/sns/MD/test/components/log/CLoggerTest.php" line="4" assertions="1" time="0.000919"/>
+    </testsuite>
+    <testsuite name="CMysqliTest" file="/home/qteqpid/workspace/sns/MD/test/components/db/CMysqliTest.php" tests="1" assertions="0" failures="0" errors="1" time="0.007132">
+      <testcase name="testConnect" class="CMysqliTest" file="/home/qteqpid/workspace/sns/MD/test/components/db/CMysqliTest.php" line="6" assertions="0" time="0.007132">
+        <error type="PHPUnit_Framework_Error_Warning">CMysqliTest::testConnect
+mysqli_connect(): (28000/1045): Access denied for user 'root'@'localhost' (using password: YES)
+
+/home/qteqpid/workspace/sns/MD/components/db/CMysqli.php:33
+/home/qteqpid/workspace/sns/MD/test/components/db/CMysqliTest.php:7
+</error>
+      </testcase>
+    </testsuite>
+  </testsuite>
+</testsuites>

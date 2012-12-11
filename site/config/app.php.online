@@ -1,0 +1,190 @@
+<?php
+/**
+ * MD.php专用配置文件。
+ * @author qteqpid
+ */
+return array(
+
+	'defaultController' => 'index',
+	'defaultAction' => 'index',
+
+	'ip' => 77,
+	'siteName' => 'MD',
+	'siteUrl' => 'http://www.imeiding.com/',
+	'theme' => 'meiding',
+	'domain' => 'www.imeiding.com',
+
+	'preload' => array('log'),
+	'modules' => array('api'),
+	'import' => array(
+		'app.models.*',
+		'app.widgets.*',
+		'app.components.*',
+		'app.forms.*',
+	),
+	/**
+	 * 组件配置。格式如下：
+	 * 'alias' => array(
+	 * 		'class' => 'class name',
+	 * 		'path'  => '完整路径文件名的别名'
+	 * 		'param' => array('生成组件类实例需要的参数')
+	 * )
+	 */
+	'components' => array(
+		'mail' => array(
+			'class' => 'PHPMail', 
+			'path'  => 'md.components.mail.PHPMail',
+			'param' => array(
+				'accounts' => array(
+                    array(
+                            'host' => 'smtp.ym.163.com',
+                            'port' => '25',
+                            'user' => 'service1@imeiding.com',
+                            'pass' => '4nDaociKj4',
+                    ),
+                    array(
+                            'host' => 'smtp.ym.163.com',
+                            'port' => '25',
+                            'user' => 'service2@imeiding.com',
+                            'pass' => '83a9sqZJcy',
+                    ),
+                    array(
+                            'host' => 'smtp.ym.163.com',
+                            'port' => '25',
+                            'user' => 'service3@imeiding.com',
+                            'pass' => '3uBmWMKmRe',
+                    ),                    
+				),
+			),
+		),
+		'cache' => array( // 支持多种缓存机制，比如xcache\memcache\filesystem
+			'class' => 'CCacheFactory', 
+			'path'  => 'md.components.cache.CCacheFactory',
+			'param' => array(
+				'mechanism' => 'filesystem',
+				'prefix' => 'md_',
+				'cachePath' => 'root.cache',
+			),
+			/*
+			'param' => array(
+				'mechanism' => 'memcached',
+				'host' => 'localhost',
+				'port' => '12000',
+				'prefix' => 'md_',
+			),
+			'param' => array(
+				'mechanism' => 'xcache',
+			),
+			*/
+		),
+		'redis' => array(
+			'class' => 'RedisService', 
+			'path'  => 'md.components.redis.RedisService',
+			'param' => array(
+				'host' => 'localhost',
+				'port' => '6379',
+				'prefix' => 'md_',
+			),
+		),	
+		'db' => array(
+			'class' => 'CMysqliRW',  // db读写分离
+			'path'  => 'md.components.db.CMysqliRW',
+			'param' => array(
+				'rw' => array(
+					'dbhost' => 'localhost',
+					'dbuser' => 'yourusername',
+					'dbpass' => 'yourpassword',
+					'dbname' => 'yourdbname',
+				),
+				'ro' => array(
+					array(
+						'dbhost' => 'localhost',
+						'dbuser' => 'yourusername',
+						'dbpass' => 'yourpassword',
+						'dbname' => 'yourdbname',
+					),
+				),
+			),
+		),
+		'log' => array(
+			'class' => 'CLogRouter', 
+			'path'  => 'md.components.log.CLogRouter',
+			'param' => array(
+				'logRoutes' => array(
+					array(
+						'clazz' => 'CWebLogRoute',
+						'params' =>array(
+						),
+					),
+					array(
+						'clazz' => 'CFileLogRoute',
+						'params' => array(
+							'levels' => CLogger::LEVEL_DEBUG,
+							'logFile' => 'debug.log',
+						),
+					),
+					
+					array(
+						'clazz' => 'CFileLogRoute',
+						'params' => array(
+							'levels' => CLogger::LEVEL_CRON,
+							'logFile' => 'cron.log',
+						),
+					),
+					
+					array(
+						'clazz' => 'CFileLogRoute',
+						'params' => array(
+							'levels' => CLogger::LEVEL_ERROR,
+							'logFile' => 'error.log',
+						),
+					),
+					
+					array(
+						'clazz' => 'CFileLogRoute',
+						'params' => array(
+							'levels' => CLogger::LEVEL_PROFILE,
+							'logFile' => 'profile.log',
+						),
+					),
+				),
+			),
+		),
+		'user' => array(
+			'class' => 'WebUser', 
+			'param' => array(),
+		),
+		'viewRender' => array(
+			'class' => 'CViewRender',
+		),	
+	),
+	// params test值可通过MD::app()->params['test']获得
+	'params' => array(
+
+		//框架配置的默认值	
+		'MDViewPath' => 'md.views',
+	
+		//应用配置的一些默认值	
+		//ROOT下一级目录
+		'siteDir' => 'site',
+		'tempDir' => 'tmp',
+		'logDir' => 'log',
+		
+		//路径
+		'sitePath' => 'root.site',
+		'logPath' => 'root.log',
+	
+		//siteDir下一级目录
+		'moduleDir' => 'modules',
+		'controllerDir' => 'controllers',
+		'actionDir' => 'actions', 
+		'viewDir' => 'views',
+		'themeDir' => 'themes',
+		
+		//themeDir下已经目录
+		'jsDir' => 'js',
+		'cssDir' => 'css',
+		'imageDir' => 'images',
+	),
+
+);

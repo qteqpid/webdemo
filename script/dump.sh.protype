@@ -1,0 +1,3 @@
+#!/bin/bash
+mysqldump --no-data --databases social -hlocalhost -uroot -p> structure.sql
+mysqldump -t --databases social -hlocalhost -uroot -p> data.sql
